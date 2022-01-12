@@ -1,6 +1,5 @@
 package com.springboot.bankapp.model;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,40 +8,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-
 @Entity
 public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; 
 	
-	private String name;
+	private String name; 
 	
-	private String city;
+	@Column(length = 512)
+	private String address; 
+	
+	private String city; 
 	
 	@Column(nullable = false, unique = true)
 	private String panNumber;
-	
-	
-	@Column(length = 512)
-	private String address;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private UserInfo userInfo; 
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private UserInfo userInfo;
+	private Account account; 
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Account account;
-	
-	
-	public UserInfo getUserInfo() {
-		return userInfo;
-	}
-
-	public void setUserInfo(UserInfo userInfo) {
-		this.userInfo = userInfo;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -83,6 +71,14 @@ public class Customer {
 		this.panNumber = panNumber;
 	}
 
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
 	public Account getAccount() {
 		return account;
 	}
@@ -91,7 +87,10 @@ public class Customer {
 		this.account = account;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", address=" + address + ", city=" + city + ", panNumber="
+				+ panNumber + ", userInfo=" + userInfo + ", account=" + account + "]";
 	}
 
-
+}

@@ -11,29 +11,20 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Account {
+public class Account{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; 
 	
 	@Column(nullable = false, unique = true)
-	private String accountNumber;
+	private String accountNumber; 
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateOfOpening;
-	
+
 	@Column(nullable = false)
-	private double balance;
+	private double balance; 
 	
-
-	public double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -58,4 +49,13 @@ public class Account {
 		this.dateOfOpening = dateOfOpening;
 	}
 
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+	
 }

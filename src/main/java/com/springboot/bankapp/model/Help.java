@@ -10,9 +10,9 @@ import javax.persistence.Id;
 public class Help {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; 
 	
-	private String question;
+	private String question; 
 	
 	@Column(length = 2000)
 	private String answer;
@@ -39,10 +39,7 @@ public class Help {
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
-	}
+	} 
 	
 	
-	
-	
-
 }

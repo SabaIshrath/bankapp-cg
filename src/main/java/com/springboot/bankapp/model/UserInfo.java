@@ -1,29 +1,28 @@
 package com.springboot.bankapp.model;
 
-import java.util.List;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class UserInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; 
 	
 	@Column(nullable = false, unique = true)
-	private String username;
+	private String username; 
 	
 	@Column(nullable = false, unique = true)
-	private String password;
+	private String password; 
 	
-	@OneToMany(fetch = FetchType.EAGER)
-	private List<Role> roles;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Role role;
 
 	public Long getId() {
 		return id;
@@ -49,16 +48,15 @@ public class UserInfo {
 		this.password = password;
 	}
 
-	public List<Role> getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
 	}
-	
-	
-	
 
-
+	 
+	
+	
 }

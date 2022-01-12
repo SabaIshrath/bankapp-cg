@@ -14,19 +14,19 @@ import javax.persistence.TemporalType;
 public class Transaction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; 
 	
 	@Column(nullable = false)
-	private String accountFrom;
+	private String accountFrom; 
 	
 	@Column(nullable = false)
-	private String accountTo;
+	private String accountTo; 
 	
 	@Column(nullable = false)
-	private String operationType;
+	private String operationType; 
 	
 	@Column(nullable = false)
-	private double amount;
+	private double amount; 
 	
 	@Temporal(TemporalType.DATE)
 	private Date dateOfTransaction;
@@ -77,8 +77,7 @@ public class Transaction {
 
 	public void setDateOfTransaction(Date dateOfTransaction) {
 		this.dateOfTransaction = dateOfTransaction;
-	}
+	} 
 	
 	
-
 }

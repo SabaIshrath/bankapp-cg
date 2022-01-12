@@ -5,15 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 @Entity
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; 
 	
-	@Column(nullable = false, unique = true)
-	private String name;
+	@Column(nullable = false)
+	private String name; 
 
 	public Long getId() {
 		return id;
@@ -29,9 +28,7 @@ public class Role {
 
 	public void setName(String name) {
 		this.name = name;
-	}
+	} 
 	
 	
-	
-
 }

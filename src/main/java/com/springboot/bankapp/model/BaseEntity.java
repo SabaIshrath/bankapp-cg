@@ -7,5 +7,5 @@ import javax.persistence.Id;
 public class BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long id; 
 }
