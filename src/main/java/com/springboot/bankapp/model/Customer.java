@@ -29,18 +29,18 @@ public class Customer {
 	private String address;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	private UserInfo usserInfo;
+	private UserInfo userInfo;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Account account;
 	
 	
-	public UserInfo getUsserInfo() {
-		return usserInfo;
+	public UserInfo getUserInfo() {
+		return userInfo;
 	}
 
-	public void setUsserInfo(UserInfo usserInfo) {
-		this.usserInfo = usserInfo;
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
 	}
 
 	public Long getId() {
@@ -91,4 +91,7 @@ public class Customer {
 		this.account = account;
 	}
 
-}
+	
+	}
+
+
